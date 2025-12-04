@@ -13,14 +13,16 @@ public class PedidoService {
     @Autowired
     private PedidoRepository repository;
 
-    public Pedido save(Pedido pedido) {
+    public Pedido save(Pedido pedido) throws Exception {
+
+        return  repository.save(pedido);        
         
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
     }
 
-    public Pedido findByid() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findByid'");
+    public Pedido findByid(Long id) {
+        
+        return repository.findById(id).orElse(null);
+        
     }
 
     public List <Pedido> findAll(){
